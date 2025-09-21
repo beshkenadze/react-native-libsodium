@@ -1754,10 +1754,10 @@
   dependencies:
     eslint-scope "5.1.1"
 
-"@noble/hashes@^1.3.2":
-  version "1.3.2"
-  resolved "https://registry.yarnpkg.com/@noble/hashes/-/hashes-1.3.2.tgz#6f26dbc8fbc7205873ce3cee2f690eba0d421b39"
-  integrity sha512-MVC8EAQp7MvEcm30KWENFjgR+Mkmf+D189XJTkFIlwohU5hcBbn1ZkKq7KVTi2Hme3PMGF390DaL52beVrIihQ==
+"@noble/hashes@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@noble/hashes/-/hashes-2.0.0.tgz#5c39388259a0868cadb17d688cd8cf07eae344a4"
+  integrity sha512-h8VUBlE8R42+XIDO229cgisD287im3kdY6nbNZJFjc6ZvKIXPYXe6Vc/t+kyjFdMFyt5JpapzTsEg8n63w5/lw==
 
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
@@ -2299,10 +2299,15 @@
   dependencies:
     "@types/libsodium-wrappers" "*"
 
-"@types/libsodium-wrappers@*", "@types/libsodium-wrappers@^0.7.13":
+"@types/libsodium-wrappers@*":
   version "0.7.13"
   resolved "https://registry.yarnpkg.com/@types/libsodium-wrappers/-/libsodium-wrappers-0.7.13.tgz#769c4ea01de96bb297207586a70777ebf066dcb4"
   integrity sha512-KeAKtlObirLJk/na6jHBFEdTDjDfFS6Vcr0eG2FjiHKn3Nw8axJFfIu0Y9TpwaauRldQBj/pZm/MHtK76r6OWg==
+
+"@types/libsodium-wrappers@^0.7.14":
+  version "0.7.14"
+  resolved "https://registry.yarnpkg.com/@types/libsodium-wrappers/-/libsodium-wrappers-0.7.14.tgz#f688f8d44e46ed61c401f82ff757581655fbcc42"
+  integrity sha512-5Kv68fXuXK0iDuUir1WPGw2R9fOZUlYlSAa0ztMcL0s0BfIDTqg9GXz8K30VJpPP3sxWhbolnQma2x+/TfkzDQ==
 
 "@types/minimist@^1.2.0", "@types/minimist@^1.2.2":
   version "1.2.2"
@@ -6699,29 +6704,29 @@ levn@~0.3.0:
     prelude-ls "~1.1.2"
     type-check "~0.3.2"
 
-libsodium-sumo@^0.7.13:
-  version "0.7.13"
-  resolved "https://registry.yarnpkg.com/libsodium-sumo/-/libsodium-sumo-0.7.13.tgz#533b97d2be44b1277e59c1f9f60805978ac5542d"
-  integrity sha512-zTGdLu4b9zSNLfovImpBCbdAA4xkpkZbMnSQjP8HShyOutnGjRHmSOKlsylh1okao6QhLiz7nG98EGn+04cZjQ==
+libsodium-sumo@^0.7.15:
+  version "0.7.15"
+  resolved "https://registry.yarnpkg.com/libsodium-sumo/-/libsodium-sumo-0.7.15.tgz#91c1d863fe3fbce6d6b9db1aadaa622733a1d007"
+  integrity sha512-5tPmqPmq8T8Nikpm1Nqj0hBHvsLFCXvdhBFV7SGOitQPZAA6jso8XoL0r4L7vmfKXr486fiQInvErHtEvizFMw==
 
-libsodium-wrappers-sumo@^0.7.13:
-  version "0.7.13"
-  resolved "https://registry.yarnpkg.com/libsodium-wrappers-sumo/-/libsodium-wrappers-sumo-0.7.13.tgz#a33aea845a0bb56db067548f04feba28c730ab8e"
-  integrity sha512-lz4YdplzDRh6AhnLGF2Dj2IUj94xRN6Bh8T0HLNwzYGwPehQJX6c7iYVrFUPZ3QqxE0bqC+K0IIqqZJYWumwSQ==
+libsodium-wrappers-sumo@^0.7.15:
+  version "0.7.15"
+  resolved "https://registry.yarnpkg.com/libsodium-wrappers-sumo/-/libsodium-wrappers-sumo-0.7.15.tgz#0ef2a99b4b17e8385aa7e6850593660dbaf5fb40"
+  integrity sha512-aSWY8wKDZh5TC7rMvEdTHoyppVq/1dTSAeAR7H6pzd6QRT3vQWcT5pGwCotLcpPEOLXX6VvqihSPkpEhYAjANA==
   dependencies:
-    libsodium-sumo "^0.7.13"
+    libsodium-sumo "^0.7.15"
 
-libsodium-wrappers@^0.7.13:
-  version "0.7.13"
-  resolved "https://registry.yarnpkg.com/libsodium-wrappers/-/libsodium-wrappers-0.7.13.tgz#83299e06ee1466057ba0e64e532777d2929b90d3"
-  integrity sha512-kasvDsEi/r1fMzKouIDv7B8I6vNmknXwGiYodErGuESoFTohGSKZplFtVxZqHaoQ217AynyIFgnOVRitpHs0Qw==
+libsodium-wrappers@^0.7.15:
+  version "0.7.15"
+  resolved "https://registry.yarnpkg.com/libsodium-wrappers/-/libsodium-wrappers-0.7.15.tgz#53f13e483820272a3d55b23be2e34402ac988055"
+  integrity sha512-E4anqJQwcfiC6+Yrl01C1m8p99wEhLmJSs0VQqST66SbQXXBoaJY0pF4BNjRYa/sOQAxx6lXAaAFIlx+15tXJQ==
   dependencies:
-    libsodium "^0.7.13"
+    libsodium "^0.7.15"
 
-libsodium@^0.7.13:
-  version "0.7.13"
-  resolved "https://registry.yarnpkg.com/libsodium/-/libsodium-0.7.13.tgz#230712ec0b7447c57b39489c48a4af01985fb393"
-  integrity sha512-mK8ju0fnrKXXfleL53vtp9xiPq5hKM0zbDQtcxQIsSmxNgSxqCj6R7Hl9PkrNe2j29T4yoDaF7DJLK9/i5iWUw==
+libsodium@^0.7.15:
+  version "0.7.15"
+  resolved "https://registry.yarnpkg.com/libsodium/-/libsodium-0.7.15.tgz#ac284e3dcb1c29ae9526c5581cdada6a072f6d20"
+  integrity sha512-sZwRknt/tUpE2AwzHq3jEyUU5uvIZHtSssktXq7owd++3CSgn8RGrv6UZJJBpP7+iBghBqe7Z06/2M31rI2NKw==
 
 lines-and-columns@^1.1.6:
   version "1.2.4"

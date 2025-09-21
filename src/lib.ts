@@ -15,7 +15,7 @@ export type {
   Uint8ArrayOutputFormat,
 } from 'libsodium-wrappers';
 import * as hkdf from '@noble/hashes/hkdf';
-import { sha256 } from '@noble/hashes/sha256';
+import { sha256 } from '@noble/hashes/sha2';
 import type {
   CryptoBox,
   CryptoKX,
@@ -82,14 +82,16 @@ export const ready = new Promise<void>(async (resolve) => {
   await new Promise((r) => setTimeout(r, 0));
 
   if (isLoadSumoVersion) {
-    lib = (await import('libsodium-wrappers-sumo')).default;
+    lib = (await import('libsodium-wrappers-sumo'))
+      .default as unknown as typeof lib;
   } else {
     lib = (await import('libsodium-wrappers')).default;
   }
   await lib.ready;
   // only after ready the lib is available
   if (isLoadSumoVersion) {
-    lib = (await import('libsodium-wrappers-sumo')).default;
+    lib = (await import('libsodium-wrappers-sumo'))
+      .default as unknown as typeof lib;
   } else {
     lib = (await import('libsodium-wrappers')).default;
   }
@@ -624,5 +626,6 @@ export let _unstable_crypto_kdf_hkdf_sha256_expand = (
   info: string,
   length: number
 ) => {
-  return hkdf.expand(sha256, key, info, length);
+  const infoBytes = new TextEncoder().encode(info);
+  return hkdf.expand(sha256, key, infoBytes, length);
 };
