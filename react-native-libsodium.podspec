@@ -25,7 +25,7 @@ Pod::Spec.new do |s|
   s.license      = package["license"]
   s.authors      = package["author"]
 
-  s.platforms    = { :ios => "26.0" }
+  s.platforms    = { :ios => "12.4" }
   s.source       = { :git => "https://github.com/beshkenadze/react-native-libsodium.git", :tag => "#{s.version}" }
 
   s.source_files = "ios/**/*.{h,m,mm}", "cpp/**/*.{h,cpp}"
