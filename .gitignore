@@ -76,3 +76,6 @@ lib/
 /test-results/
 /playwright-report/
 /playwright/.cache/
+libsodium/libsodium-stable/*
+libsodium/libsodium-*-stable.tar.gz*
+libsodium/minisign.pub

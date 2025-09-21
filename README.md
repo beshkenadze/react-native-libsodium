@@ -8,6 +8,13 @@ Supported Platforms:
 - Android
 - Web
 
+## Requirements
+
+- **React Native**: 0.81.0 or higher
+- **iOS**: iOS 16.0 or higher (requires Xcode 16.1 or higher)
+- **Android**: API level 21 or higher (compileSdkVersion 34, targetSdkVersion 34)
+- **Node.js**: 20.19.0 or higher
+
 Currently only a subset of the libsodium-wrappers exposed functionality is implemented. For missing functionality we welcome pull-requests or you can sponsor the development. Get in touch with us at `hi@serenity.re`.
 
 ## Installation Expo (dev-client)
