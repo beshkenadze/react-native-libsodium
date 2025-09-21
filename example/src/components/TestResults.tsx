@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Text, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import '../tests/_unstable_crypto_kdf_hkdf_sha256_expand_test';
 import '../tests/_unstable_crypto_kdf_hkdf_sha256_extract_test';
 import '../tests/constants_test';
@@ -49,9 +49,9 @@ export const TestResults: React.FC = () => {
   }, []);
 
   return (
-    <View style={{ flexDirection: 'column', gap: 8, padding: 16 }}>
+    <View style={styles.container}>
       {allTestsPassed != null && (
-        <Text style={{ fontSize: 20 }}>
+        <Text style={styles.headerText}>
           {allTestsPassed ? 'Tests passed' : 'Tests failed'}
         </Text>
       )}
@@ -61,24 +61,20 @@ export const TestResults: React.FC = () => {
             .concat(result.test.description)
             .join(' / ');
           return (
-            <View key={result.test.id} style={{ gap: 8 }}>
-              <View style={{ flexDirection: 'row', gap: 8 }}>
+            <View key={result.test.id} style={styles.testItem}>
+              <View style={styles.testRow}>
                 <Text>{!result.success ? '❌' : '✅'}</Text>
-                <Text style={{ fontSize: 16 }}>{title}</Text>
+                <Text style={styles.testTitle}>{title}</Text>
               </View>
               {!result.success && (
-                <Text style={{ fontSize: 16, color: 'red' }}>
-                  {'' + result.error}
-                </Text>
+                <Text style={styles.errorText}>{'' + result.error}</Text>
               )}
               {!result.success &&
                 typeof result.error === 'object' &&
                 result.error &&
                 'stack' in result.error && (
-                  <View style={{ backgroundColor: '#ddd', padding: 16 }}>
-                    <Text style={{ fontFamily: 'monospace' }}>
-                      {result.error.stack}
-                    </Text>
+                  <View style={styles.stackTrace}>
+                    <Text style={styles.stackText}>{result.error.stack}</Text>
                   </View>
                 )}
             </View>
@@ -87,3 +83,35 @@ export const TestResults: React.FC = () => {
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flexDirection: 'column',
+    gap: 8,
+    padding: 16,
+  },
+  headerText: {
+    fontSize: 20,
+  },
+  testItem: {
+    gap: 8,
+  },
+  testRow: {
+    flexDirection: 'row',
+    gap: 8,
+  },
+  testTitle: {
+    fontSize: 16,
+  },
+  errorText: {
+    fontSize: 16,
+    color: 'red',
+  },
+  stackTrace: {
+    backgroundColor: '#ddd',
+    padding: 16,
+  },
+  stackText: {
+    fontFamily: 'monospace',
+  },
+});
