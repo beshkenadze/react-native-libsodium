@@ -95,7 +95,7 @@
     "react-native": "*"
   },
   "engines": {
-    "node": ">= 16.0.0"
+    "node": ">= 20.19.0"
   },
   "packageManager": "yarn@1.22.21",
   "jest": {
