@@ -1,7 +1,3 @@
-/**
- * @jest-environment jsdom
- */
-
 // Mock react-native
 jest.mock('react-native', () => ({
   NativeModules: {
