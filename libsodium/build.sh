@@ -1,17 +1,41 @@
 #!/bin/bash
+set -euo pipefail
 
 # get current dir of the build script
 script_dir=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
-cd $script_dir
+cd "$script_dir"
 
-source_file='libsodium-1.0.19-stable.tar.gz'
+source_file='libsodium-1.0.20-stable.tar.gz'
 source_dir='libsodium-stable'
 build_dir='build'
 
 # download and verify the source
-rm -f $source_file
-curl https://download.libsodium.org/libsodium/releases/$source_file > $source_file
-minisign -Vm $source_file -p libsodium.org.minisign.pub || exit 1
+rm -f "$source_file"
+echo "Downloading $source_file..."
+curl -fLo "$source_file" "https://download.libsodium.org/libsodium/releases/$source_file"
+
+echo "Downloading signature for $source_file..."
+signature_file="$source_file.minisig"
+rm -f "$signature_file"
+curl -fLo "$signature_file" "https://download.libsodium.org/libsodium/releases/$signature_file"
+if [ ! -s "$signature_file" ]; then
+  echo "ERROR: signature file '$signature_file' not found or empty after download."
+  echo "Tried URL: https://download.libsodium.org/libsodium/releases/$signature_file"
+  exit 1
+fi
+
+echo "Downloading minisign public key..."
+# use a temp file for the public key so we don't clobber other files
+minisign_pubkey=$(mktemp)
+trap 'rm -f "$minisign_pubkey"' EXIT
+curl -fLo "$minisign_pubkey" "https://download.libsodium.org/minisign.pub"
+if [ ! -s "$minisign_pubkey" ]; then
+  echo "ERROR: minisign public key download failed or file is empty."
+  exit 1
+fi
+
+echo "Verifying $source_file with minisign..."
+minisign -Vm "$source_file" -p "$minisign_pubkey" || exit 1
 
 # extract source from previous builds
 rm -rf $source_dir
